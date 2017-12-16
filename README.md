@@ -1,5 +1,5 @@
-An Order Entry web application written in Perl/HTML/JavaScript
+An Order Entry web application written in Perl/HTML/JavaScript<br>
 
-Mojolicious as the web framework
-Websockets for real-time entry
-Sqlite3 database
+Mojolicious as the web framework<br>
+Websockets for real-time entry<br>
+Sqlite3 database<br>
