@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head><title><%= title %></title></head>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  
+  <body>
+  
+    <%= link_to 'Home' => '/' %>
+    <br>
+    <%= link_to 'Orders' => '/orders' %>
+    <br>
+    <%= link_to 'New Order' => '/new' %>
+    <br>
+    <%= link_to 'Items' => '/items' %>
+    <br>
+    
+    <%= content %>
+
+  </body>
+</html>

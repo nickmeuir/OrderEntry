@@ -1,0 +1,29 @@
+% layout 'default';
+% title 'Welcome';
+
+<p>
+  <table>
+
+  <% foreach my $row (@$orders) { %>
+  <% my ($id, $name) = @$row; %>
+  <tr>
+    <td>
+  %= form_for delete => begin
+
+  %= text_field id => $id, style => "display: none"
+  
+  <a href='/order/<%= $id %>'><%= sprintf('%04u', $id) %> - <%= $name %></a>
+      </td>
+      <td>
+	
+	%= submit_button "X"
+
+      </td>
+    </tr>
+
+  % end
+       
+  <% } %>
+  </table>
+  
+</p>

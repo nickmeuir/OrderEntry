@@ -1,0 +1,12 @@
+% layout 'default';
+% title 'Welcome';
+
+<p>
+  
+</p>
+%= form_for new_order => begin
+%= text_field name => 'NM'
+%= submit_button
+% end
+
+<h2></h2>

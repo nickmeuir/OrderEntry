@@ -1,0 +1,22 @@
+% layout 'default';
+% title 'Welcome';
+
+<p>
+  <table>
+    <th>Part No</th>
+    <th>Desc</th>
+  <% foreach my $row (@$items) { %>
+  <% my ($id, $partno, $desc) = @$row; %>
+  <tr>
+    <td>
+      <%= $partno %>
+      <td>
+	<%= $desc %>
+	</td>
+    </td>
+  </tr>     
+  <% } %>
+  
+  </table>
+  
+</p>

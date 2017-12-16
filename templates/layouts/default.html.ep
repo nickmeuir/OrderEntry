@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head><title><%= title %></title></head>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/flatly/bootstrap.min.css">
+
+  
+  <body>
+    
+    <div class="container-fluid">
+      
+      <nav class="navbar navbar-default">
+	<div class="container-fluid">
+	  <div class="navbar-header">
+	    <a class="navbar-brand" href="#">Order</a>
+	  </div>
+	  <ul class="nav navbar-nav">
+	    <li class="active"><a href="#">Home</a></li>
+	    <li><a href="/about">About</a></li>
+	  </ul>
+	</div>
+      </nav>
+      
+      <div class="row centent">
+	
+	<div class="col-sm-2 sidenav">
+	  <ul class="nav nav-pill nav-stacked">
+	    <li class=""><a href="#">Home</a></li>
+	    <li><a href="/orders">Orders</a></li>
+	    <li><a href="/new">New Order</a></li>
+	    <li><a href="/items">Items</a></li>
+	  </ul>
+	</div>
+
+	<div class="col-sm-10">
+	  <%= content %>
+	</div>
+	
+      </div>
+    </div>
+    
+  </body>
+</html>

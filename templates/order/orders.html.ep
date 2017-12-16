@@ -1,0 +1,44 @@
+% layout 'default';
+% title 'Welcome';
+
+<p>
+  <div class="panel-group">
+    <div class="panel panel-default">
+      <div class="panel-heading">Order List</div>
+      
+      <div class="panel-body">
+
+	
+	
+	<table class="table table-striped">
+
+	  <% foreach my $row (@$orders) { %>
+	  <% my ($id, $name) = @$row; %>
+	  <tr>
+	    <td>
+	      %= form_for delete => begin
+
+	      %= text_field id => $id, style => "display: none"
+	      
+	      <a href='/order/<%= $id %>'><%= sprintf('%04u', $id) %> - <%= $name %></a>
+	    </td>
+	    <td>
+
+	      &nbsp;
+	      
+	      <button class="btn btn-xs btn-danger">
+		<span class="glyphicon glyphicon-remove"> </span>
+	      </button>
+	      
+
+	    </td>
+	  </tr>
+
+	  % end
+	  
+	  <% } %>
+      </div>
+      
+      </table>
+  
+</p>

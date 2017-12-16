@@ -1,0 +1,107 @@
+% layout 'default';
+% title 'Welcome';
+
+<script>
+    $(document).ready(function(e) {
+        var ws = new WebSocket('ws://localhost:3000/additem');
+
+        ws.onopen = function(event) {
+
+        }
+
+        ws.onmessage = function(event) {
+
+            var data = JSON.parse(event.data);
+
+            $('#list').append('<tr><td>' + data.partno + '</td><td>' + data.partdesc + '</td><td>' + data.partqty + '</td></tr>');
+        }
+
+        $('#part').keydown(function(e) {
+            if (e.which == 13) {
+                e.preventDefault();
+            }
+            if (e.which == 13) {
+                $('#qty').focus();
+            }
+        });
+
+        $('#qty').keydown(function(e) {
+            if (e.which == 13) {
+                e.preventDefault();
+            }
+
+            if (e.which == 13) {
+                ws.send($('#part').val() + "!" + $('#qty').val() + "!" + <%= $orderno %>);
+                $('#part').val('');
+                $('#qty').val('1');
+                $('#part').focus();
+            }
+        });
+
+    });
+</script>
+
+
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <p>Order #
+      <%= sprintf('%04u', $orderno) %>
+    </p>
+  </div>
+
+  <p>
+    
+    <table class="table table-striped" id='list'>
+      <thead>
+	<th>Part No</th>
+	<th>Desc</th>
+	<th>Qty</th>
+      </thead>
+      <tbody>
+	<% foreach my $row (@$item_list) { %>
+	<% my ($partno, $partdesc, $qty) = @$row; %>
+	<tr>
+          <td>
+
+            <%= $partno %>
+
+          </td>
+          <td>
+
+            <%= $partdesc %>
+          </td>
+          <td>
+            
+
+            <%= $qty %>
+            
+
+          </td>
+
+	</tr>
+	<% } %>
+	
+      </tbody>
+      
+    </table>
+    
+    
+  </p>
+</div>
+
+<table>
+  <th></th>
+  <th></th>
+  <tr
+     <div class="form-group">
+       <td>
+	 <label for="part">Part Number</label>
+         <input type="text" class="form-control" id="part">
+       </td>
+       <td>
+	 <label for="qty">Quantity</label>
+         <input type="text" class="form-control"  id="qty" value="1">
+       </td>
+     </div>
+     
+</table>

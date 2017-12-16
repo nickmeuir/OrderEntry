@@ -1,0 +1,7 @@
+CREATE TABLE items_list(
+
+       ID INTEGER PRIMARY KEY AUTOINCREMENT,
+       ORDERNO INTEGER,
+       PARTNO TEXT,
+       QTY INTEGER
+       );
